@@ -1,4 +1,11 @@
-export default function Track({ isPlaying, isActive, activeSong }: any) {
+import { IActiveSong } from "../../interface";
+interface IProps {
+	activeSong: IActiveSong;
+	isActive: boolean;
+	isPlaying: boolean;
+}
+
+export default function Track({ isPlaying, isActive, activeSong }: IProps) {
 	return (
 		<div className="flex items-center justify-start flex-1">
 			<div

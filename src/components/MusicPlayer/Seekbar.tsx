@@ -2,8 +2,8 @@ interface IProps {
 	value: number;
 	min: string;
 	max: number;
-	onInput: (e: any) => void;
 	appTime: number;
+	onInput: (e: any) => void;
 	setSeekTime: React.Dispatch<React.SetStateAction<number>>;
 }
 
@@ -21,7 +21,7 @@ export default function Seekbar({ value, min, max, onInput, setSeekTime, appTime
 			<p className="text-white">{value === 0 ? "0:00" : getTime(value)}</p>
 			<input
 				type="range"
-				step="any"
+				step="step"
 				value={value}
 				min={min}
 				max={max}

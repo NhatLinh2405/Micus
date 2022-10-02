@@ -6,7 +6,7 @@ interface ITest {
 	key: string;
 	title: string;
 	subtitle: string;
-	artists: any[];
+	artists: any;
 	track: number;
 	images: {
 		coverart: string;
@@ -71,19 +71,16 @@ const playerSlice = createSlice({
 
 			state.currentIndex = action.payload;
 			state.isActive = true;
-			console.log("1");
 		},
 
 		prevSong: (state, action) => {
-			// if (state.currentSongs[action.payload]?.track) {
-			// 	state.activeSong = state.currentSongs[action.payload]?.track;
-			// } else {
-			// 	state.activeSong = state.currentSongs[action.payload];
-			// }
-
-			// state.currentIndex = action.payload;
-			// state.isActive = true;
-			console.log("1");
+			if (state.currentSongs[action.payload]?.track) {
+				state.activeSong = state.currentSongs[action.payload]?.track;
+			} else {
+				state.activeSong = state.currentSongs[action.payload];
+			}
+			state.currentIndex = action.payload;
+			state.isActive = true;
 		},
 
 		playPause: (state, action) => {

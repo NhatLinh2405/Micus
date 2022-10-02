@@ -4,17 +4,36 @@ export interface ISong {
 	title: string;
 	subtitle: string;
 	artists: { adamid: string }[];
+	attributes: {
+		name: string;
+		albumName: string;
+		artwork: {
+			url: string;
+		};
+	};
 	images: {
 		coverart: string;
 		adamid: string;
 		background: string;
 	};
+	genres: {
+		primary: string;
+	};
 	cover: string;
 	url: string;
+	track: number;
+}
+
+export interface IArtistData {
+	artists: string[];
 }
 
 export interface IActiveSong {
 	title?: string;
+	subtitle?: string;
+	images?: {
+		coverart: string;
+	};
 }
 
 export interface IArtists {

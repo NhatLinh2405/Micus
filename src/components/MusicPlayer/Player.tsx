@@ -1,5 +1,22 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import { useRef, useEffect } from "react";
+import { IActiveSong } from "../../interface";
+
+interface IProps {
+	activeSong: {
+		hub: {
+			actions: { uri: string }[];
+		};
+	};
+	isPlaying: boolean;
+	volume: number;
+	seekTime: number;
+	repeat: boolean;
+	currentIndex: number;
+	onEnded: () => void;
+	onTimeUpdate: React.ReactEventHandler<HTMLAudioElement>;
+	onLoadedData: React.ReactEventHandler<HTMLAudioElement>;
+}
 
 export default function Player({
 	activeSong,
@@ -10,7 +27,7 @@ export default function Player({
 	onTimeUpdate,
 	onLoadedData,
 	repeat,
-}: any) {
+}: IProps) {
 	const ref = useRef<HTMLAudioElement>(null);
 	// eslint-disable-next-line no-unused-expressions
 	if (ref.current) {

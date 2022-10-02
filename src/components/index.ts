@@ -1,10 +1,23 @@
+import SongCard from "./SongCard";
+import TopPlay from "./TopPlay";
+import ArtistCard from "./ArtistCard";
+import DetailsHeader from "./DetailsHeader";
+import MusicPlayer from "./MusicPlayer";
 import SideBar from "./SideBar";
+import SearchBar from "./SearchBar";
 import Loader from "./Loader";
 import Error from "./Error";
-import SearchBar from "./SearchBar";
-import TopPlay from "./TopPlay";
-import SongCard from "./SongCard";
-import ArtistCard from "./ArtistCard";
-import MusicPlayer from "./MusicPlayer";
+import RelatedSongs from "./RelatedSongs";
 
-export { ArtistCard, SideBar, SearchBar, SongCard, TopPlay, Loader, Error, MusicPlayer };
+export {
+	TopPlay,
+	RelatedSongs,
+	SongCard,
+	SideBar,
+	SearchBar,
+	ArtistCard,
+	DetailsHeader,
+	MusicPlayer,
+	Loader,
+	Error,
+};
