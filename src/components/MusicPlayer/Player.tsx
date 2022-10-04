@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import { useRef, useEffect } from "react";
-import { IActiveSong } from "../../interface";
 
 interface IProps {
 	activeSong: {

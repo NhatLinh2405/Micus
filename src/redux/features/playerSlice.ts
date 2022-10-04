@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ISong, IActiveSong } from "../../interface";
 
 interface ITest {
 	id: number;

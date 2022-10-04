@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ISong, IArtistData } from "../interface";
+import { ISong } from "../interface";
 
 interface IProps {
 	artistId: string;
