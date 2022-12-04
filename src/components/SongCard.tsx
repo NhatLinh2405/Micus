@@ -1,9 +1,9 @@
-import PlayPause from "./PlayPause";
 import { Link } from "react-router-dom";
 import { useAppDispatch } from "../app/store";
 import { playPause, setActiveSong } from "../redux/features/playerSlice";
+import PlayPause from "./PlayPause";
 
-import { ISong, IActiveSong } from "../interface";
+import { IActiveSong, ISong } from "../interface";
 
 interface Props {
 	song: ISong;
@@ -41,7 +41,7 @@ export default function SongCard({ song, isPlaying, activeSong, data, i }: Props
 						handlePlay={handlePlayClick}
 					/>
 				</div>
-				<img src={song.images.coverart} alt="song-_img" />
+				<img src={song.images?.coverart} alt="song-_img" />
 			</div>
 			<div className="flex flex-col mt-4">
 				<p className="text-lg font-semibold text-white">

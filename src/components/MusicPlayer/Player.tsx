@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import { useRef, useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 interface IProps {
 	activeSong: {
@@ -51,7 +51,7 @@ export default function Player({
 
 	return (
 		<audio
-			src={activeSong?.hub?.actions[1]?.uri}
+			src={activeSong?.hub?.actions?.[1].uri}
 			ref={ref}
 			loop={repeat}
 			onEnded={onEnded}
