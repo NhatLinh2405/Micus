@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer utilities {
+	.container {
+		@apply mx-auto max-w-9xl;
+	}
 	.flex-center {
 		@apply flex items-center justify-center;
 	}

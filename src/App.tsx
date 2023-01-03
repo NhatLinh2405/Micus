@@ -1,12 +1,12 @@
-import { useAppSelector } from "./app/store";
 import { Route, Routes } from "react-router-dom";
-import { SideBar, SearchBar, TopPlay, MusicPlayer } from "./components";
-import { ArtistDetails, TopArtists, AroundYou, Discover, Search, SongDetails, TopCharts } from "./pages";
+import { useAppSelector } from "./app/store";
+import { MusicPlayer, SearchBar, SideBar, TopPlay } from "./components";
+import { AroundYou, ArtistDetails, Discover, Search, SongDetails, TopArtists, TopCharts } from "./pages";
 
 const App = () => {
 	const { activeSong } = useAppSelector((state) => state.player);
 	return (
-		<div className="relative flex">
+		<div className="container relative flex">
 			<SideBar />
 			<div className="flex flex-col flex-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
 				<SearchBar />

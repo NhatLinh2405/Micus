@@ -17,6 +17,10 @@ module.exports = {
 				wave: "wave 1.2s linear infinite",
 				slowfade: "slowfade 2.2s ease-in-out",
 			},
+			maxWidth: {
+				"8xl": "88rem",
+				"9xl": "96rem",
+			},
 			keyframes: {
 				slowfade: {
 					from: { opacity: 0 },
