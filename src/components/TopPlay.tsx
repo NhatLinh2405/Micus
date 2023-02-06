@@ -2,16 +2,16 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../app/store";
 
-import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import PlayPause from "./PlayPause";
 import { playPause, setActiveSong } from "../redux/features/playerSlice";
 import { useGetTopChartsQuery } from "../redux/services/shazamCore";
+import PlayPause from "./PlayPause";
 
-import { ISong, IActiveSong } from "../interface";
+import { IActiveSong, ISong } from "../interface";
 
 interface IProps {
 	song: ISong;
@@ -27,6 +27,8 @@ export default function TopPlay() {
 	const dispatch = useAppDispatch();
 	const { activeSong, isPlaying } = useAppSelector((state) => state.player);
 	const { data } = useGetTopChartsQuery("world");
+
+	console.log(data);
 
 	const divRef = useRef<HTMLDivElement>(null);
 
@@ -52,7 +54,9 @@ export default function TopPlay() {
 					<Link to={`/songs/${song.key}`}>
 						<p className="text-xl font-bold text-white">{song?.title}</p>
 					</Link>
-					<Link to={`/artists/${song?.artists[0].adamid}`}>
+					<Link
+						to={song?.artists ? `/artists/${song?.artists[0].adamid}` : `/artists/${song?.url}`}
+					>
 						<p className="mt-1 text-base text-gray-200">{song?.subtitle}</p>
 					</Link>
 				</div>
@@ -130,10 +134,16 @@ export default function TopPlay() {
 							className="rounded-full shadow-lg"
 							style={{ width: "25%", height: "auto" }}
 						>
-							<Link to={`/artists/${song?.artists[0].adamid}`}>
+							<Link
+								to={
+									song?.artists
+										? `/artists/${song?.artists[0].adamid}`
+										: `/artists/${song?.url}`
+								}
+							>
 								<img
-									src={song?.images.background}
-									alt="name"
+									src={song?.images?.background}
+									alt={song?.title}
 									className="object-cover w-full rounded-full"
 								/>
 							</Link>
